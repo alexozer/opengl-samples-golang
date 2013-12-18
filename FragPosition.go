@@ -75,16 +75,6 @@ var (
 		#version 100
 
 		precision mediump float;
-		bool isPrime() {
-			if(gl_FragCoord.x == 2.0f) return true;
-			for(float factor = 3.0f; factor <= sqrt(gl_FragCoord.x); factor++) {
-				if (mod(gl_FragCoord.x, factor) == 0.0f) {
-					return false;
-				}
-			}
-			return true;
-		}
-
 		void main()
 		{
 			float lerpValue = (gl_FragCoord.x + gl_FragCoord.y) / 1500.0f;
