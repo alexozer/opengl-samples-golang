@@ -29,20 +29,19 @@ func main() {
 	}
 	defer glfw.Terminate()
 
+	glfw.SwapInterval(1)
+
 	window, err := glfw.CreateWindow(640, 480, "Graphics", nil, nil)
 	if err != nil {
 		panic(err)
 	}
 	window.SetKeyCallback(keyCallback)
-	window.MakeContextCurrent()
 	window.SetFramebufferSizeCallback(reshape)
-
-	glfw.SwapInterval(1)
+	window.MakeContextCurrent()
 
 	gl.Init()
 
 	posBuffer = genVertexBuffer(vertices)
-
 	shaderProgram = glh.NewProgram(vertShader, fragShader)
 
 	for !window.ShouldClose() {
@@ -52,10 +51,16 @@ func main() {
 	}
 }
 
-var posBuffer gl.Buffer
+var vertices = []float32{
+	0.75, 0.75, 0, 1,
+	0.75, -0.75, 0, 1,
+	-0.75, -0.75, 0, 1,
+}
 
-// All float32's have a size of 4 bytes
-const float32_size = 4
+var (
+	posBuffer gl.Buffer
+	shaderProgram gl.Program
+)
 
 var (
 	vertShader = glh.Shader{
@@ -87,6 +92,9 @@ var (
 	}
 )
 
+// All float32's have a size of 4 bytes
+const float32_size = 4
+
 func genVertexBuffer(verts []float32) gl.Buffer {
 	buffer := gl.GenBuffer()
 	buffer.Bind(gl.ARRAY_BUFFER)
@@ -95,14 +103,6 @@ func genVertexBuffer(verts []float32) gl.Buffer {
 
 	buffer.Unbind(gl.ARRAY_BUFFER)
 	return buffer
-}
-
-var shaderProgram gl.Program
-
-var vertices = []float32{
-	0.75, 0.75, 0, 1,
-	0.75, -0.75, 0, 1,
-	-0.75, -0.75, 0, 1,
 }
 
 func display() {
