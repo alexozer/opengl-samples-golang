@@ -1,4 +1,4 @@
-package main
+package tut02
 
 import (
 	"fmt"
@@ -21,7 +21,7 @@ func reshape(w *glfw.Window, width, height int) {
 	gl.Viewport(0, 0, width, height)
 }
 
-func main() {
+func Run() {
 	glfw.SetErrorCallback(errorCallback)
 
 	if !glfw.Init() {
@@ -29,15 +29,15 @@ func main() {
 	}
 	defer glfw.Terminate()
 
-	glfw.SwapInterval(1)
-
 	window, err := glfw.CreateWindow(640, 480, "Graphics", nil, nil)
 	if err != nil {
 		panic(err)
 	}
 	window.SetKeyCallback(keyCallback)
 	window.SetFramebufferSizeCallback(reshape)
+
 	window.MakeContextCurrent()
+	glfw.SwapInterval(1)
 
 	gl.Init()
 
