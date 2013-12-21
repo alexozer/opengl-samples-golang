@@ -7,11 +7,11 @@ import (
 	"github.com/go-gl/glh"
 )
 
-func errorCallback(err glfw.ErrorCode, desc string) {
+func onError(err glfw.ErrorCode, desc string) {
 	fmt.Printf("%v: %v.n", err, desc)
 }
 
-func keyCallback(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
+func onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
 	if key == glfw.KeyEscape && action == glfw.Press {
 		w.SetShouldClose(true)
 	}
@@ -22,7 +22,7 @@ func reshape(w *glfw.Window, width, height int) {
 }
 
 func Run() {
-	glfw.SetErrorCallback(errorCallback)
+	glfw.SetErrorCallback(onError)
 
 	if !glfw.Init() {
 		panic("Can't init glfw!")
@@ -33,7 +33,7 @@ func Run() {
 	if err != nil {
 		panic(err)
 	}
-	window.SetKeyCallback(keyCallback)
+	window.SetKeyCallback(onKey)
 	window.SetFramebufferSizeCallback(reshape)
 
 	window.MakeContextCurrent()
