@@ -4,12 +4,14 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/fragposition"
 	//"github.com/alexozer/opengl-samples-golang/vertexcolors"
 	//"github.com/alexozer/opengl-samples-golang/cpuoffset"
-	"github.com/alexozer/opengl-samples-golang/vertoffset"
+	//"github.com/alexozer/opengl-samples-golang/vertoffset"
+	"github.com/alexozer/opengl-samples-golang/vertcalcoffset"
 )
 
 func main() {
 	//fragposition.Run()
 	//vertexcolors.Run()
 	//cpuoffset.Run()
-	vertoffset.Run()
+	//vertoffset.Run()
+	vertcalcoffset.Run()
 }
