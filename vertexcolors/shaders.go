@@ -1,8 +1,8 @@
-package fragposition
+package vertexcolors
 
 import (
-	"github.com/go-gl/glh"
 	"github.com/go-gl/gl"
+	"github.com/go-gl/glh"
 )
 
 var (
@@ -10,11 +10,18 @@ var (
 		gl.VERTEX_SHADER,
 		`
 		#version 100
-		
+
+		precision mediump float;
+
 		attribute vec4 position;
+		attribute vec4 color;
+
+		varying vec4 theColor;
+
 		void main()
 		{
 			gl_Position = position;
+			theColor = color;
 		}
 		`,
 	}
@@ -25,14 +32,13 @@ var (
 		#version 100
 
 		precision mediump float;
+
+		varying vec4 theColor;
+
 		void main()
 		{
-			float lerpValue = (gl_FragCoord.x + gl_FragCoord.y) / 1500.0f;
-			gl_FragColor = mix(vec4(1.0f, 1.0f, 0.64f, 1.0f), 
-					vec4(0.25f, 1.0f-lerpValue*0.5, lerpValue, 0.0f), 
-					lerpValue);
+			gl_FragColor = theColor;
 		}
 		`,
-	}
+	}	
 )
-

@@ -1,4 +1,4 @@
-package fragposition
+package vertexcolors
 
 import (
 	"fmt"
@@ -52,9 +52,12 @@ func Run() {
 }
 
 var vertices = []float32{
-	0.75, 0.75, 0, 1,
-	0.75, -0.75, 0, 1,
-	-0.75, -0.75, 0, 1,
+	0, 0.5, 0, 1,
+	0.5, -0.366, 0, 1,
+	-0.5, -0.366, 0, 1,
+	1, 0, 0, 1,
+	0, 1, 0, 1,
+	0, 0, 1, 1,
 }
 
 var (
@@ -80,14 +83,19 @@ func display() {
 	gl.Clear(gl.COLOR_BUFFER_BIT)
 
 	shaderProgram.Use()
+	defer gl.ProgramUnuse()
 
 	posBuffer.Bind(gl.ARRAY_BUFFER)
-	attribLoc := gl.AttribLocation(shaderProgram.GetAttribLocation("position"))
-	attribLoc.EnableArray()
 
-	attribLoc.AttribPointer(4, gl.FLOAT, false, 0, uintptr(0))
-	gl.DrawArrays(gl.TRIANGLES, 0, len(vertices)/float32_size)
+	positionAttrib := gl.AttribLocation(shaderProgram.GetAttribLocation("position"))
+	positionAttrib.AttribPointer(4, gl.FLOAT, false, 0, uintptr(0))
+	positionAttrib.EnableArray()
+	defer positionAttrib.DisableArray()
 
-	attribLoc.DisableArray()
-	gl.ProgramUnuse()
+	colorAttrib := gl.AttribLocation(shaderProgram.GetAttribLocation("color"))
+	colorAttrib.AttribPointer(4, gl.FLOAT, false, 0, uintptr((len(vertices)*float32_size)/2))
+	colorAttrib.EnableArray()
+	defer colorAttrib.DisableArray()
+
+	gl.DrawArrays(gl.TRIANGLES, 0, len(vertices)/2/float32_size)
 }
