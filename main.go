@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/alexozer/opengl-samples-golang/tut02"
+	"github.com/alexozer/opengl-samples-golang/fragposition"
 )
 
 func main() {
-	tut02.Run()
+	fragposition.Run()
 }
