@@ -8,7 +8,7 @@ import (
 )
 
 func onError(err glfw.ErrorCode, desc string) {
-	fmt.Printf("%v: %v.n", err, desc)
+	fmt.Printf("%v: %v\n", err, desc)
 }
 
 func onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
