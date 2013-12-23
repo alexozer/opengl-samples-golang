@@ -82,7 +82,7 @@ func genVertexBuffer(verts []float32) gl.Buffer {
 	buffer.Bind(gl.ARRAY_BUFFER)
 	defer buffer.Unbind(gl.ARRAY_BUFFER)
 
-	gl.BufferData(gl.ARRAY_BUFFER, len(verts)*float32_size, verts, gl.STREAM_DRAW)
+	gl.BufferData(gl.ARRAY_BUFFER, len(verts)*float32_size, verts, gl.STATIC_DRAW)
 
 	return buffer
 }
