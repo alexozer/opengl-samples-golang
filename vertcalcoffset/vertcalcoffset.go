@@ -52,6 +52,7 @@ func Run() {
 
 	for !window.ShouldClose() {
 		display()
+		//displayDual()
 		window.SwapBuffers()
 		glfw.PollEvents()
 	}
