@@ -19,6 +19,8 @@ func onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods 
 
 func reshape(w *glfw.Window, width, height int) {
 	gl.Viewport(0, 0, width, height)
+
+	heightUnif.Uniform1i(height)
 }
 
 func Run() {
@@ -34,7 +36,6 @@ func Run() {
 		panic(err)
 	}
 	window.SetKeyCallback(onKey)
-	window.SetFramebufferSizeCallback(reshape)
 
 	window.MakeContextCurrent()
 	glfw.SwapInterval(1)
@@ -43,12 +44,20 @@ func Run() {
 
 	posBuffer = genVertexBuffer(vertices)
 	shaderProgram = glh.NewProgram(vertShader, fragShader)
+	heightUnif = shaderProgram.GetUniformLocation("height")
+
+	// Set the window height uniform initially and for the future
+	shaderProgram.Use()
+	window.SetFramebufferSizeCallback(reshape)
+	window.GetFramebufferSize()
 
 	for !window.ShouldClose() {
 		display()
 		window.SwapBuffers()
 		glfw.PollEvents()
 	}
+
+	gl.ProgramUnuse()
 }
 
 var vertices = []float32{
@@ -60,6 +69,7 @@ var vertices = []float32{
 var (
 	posBuffer     gl.Buffer
 	shaderProgram gl.Program
+	heightUnif    gl.UniformLocation
 )
 
 // All float32's have a size of 4 bytes
@@ -79,8 +89,6 @@ func display() {
 	gl.ClearColor(0, 0, 0, 0)
 	gl.Clear(gl.COLOR_BUFFER_BIT)
 
-	shaderProgram.Use()
-
 	posBuffer.Bind(gl.ARRAY_BUFFER)
 	attribLoc := gl.AttribLocation(shaderProgram.GetAttribLocation("position"))
 	attribLoc.EnableArray()
@@ -89,5 +97,4 @@ func display() {
 	gl.DrawArrays(gl.TRIANGLES, 0, len(vertices)/float32_size)
 
 	attribLoc.DisableArray()
-	gl.ProgramUnuse()
 }
