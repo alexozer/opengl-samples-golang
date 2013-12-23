@@ -52,4 +52,27 @@ var (
 		}
 		`,
 	}
+
+	fragShaderSmooth = glh.Shader{
+		gl.FRAGMENT_SHADER,
+		`#version 100
+
+		precision mediump float;
+
+		uniform float loopDuration;
+		uniform float time;
+
+		const vec4 firstColor = vec4(1.0f, 1.0f, 1.0f, 1.0f); 
+		const vec4 secondColor = vec4(0.0f, 0.0f, 1.0f, 1.0f); 
+
+		void main()
+		{
+			const float fullCircle = 2.0f * 3.14159f;
+			float lerp = (mod(time, loopDuration) / loopDuration);
+			float angle = 0.5f * fullCircle * lerp;
+			float smoothMix = sin(angle);
+ 			gl_FragColor = mix(firstColor, secondColor, smoothMix);
+		}
+		`,
+	}
 )

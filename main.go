@@ -5,8 +5,8 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/vertexcolors"
 	//"github.com/alexozer/opengl-samples-golang/cpuoffset"
 	//"github.com/alexozer/opengl-samples-golang/vertoffset"
-	"github.com/alexozer/opengl-samples-golang/vertcalcoffset"
-	//"github.com/alexozer/opengl-samples-golang/fragchangecolor"
+	//"github.com/alexozer/opengl-samples-golang/vertcalcoffset"
+	"github.com/alexozer/opengl-samples-golang/fragchangecolor"
 )
 
 func main() {
@@ -14,6 +14,6 @@ func main() {
 	//vertexcolors.Run()
 	//cpuoffset.Run()
 	//vertoffset.Run()
-	vertcalcoffset.Run()
-	//fragchangecolor.Run()
+	//vertcalcoffset.Run()
+	fragchangecolor.Run()
 }

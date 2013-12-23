@@ -43,6 +43,7 @@ func Run() {
 
 	posBuffer = genVertexBuffer(vertices)
 	shaderProgram = glh.NewProgram(vertShader, fragShader)
+	//shaderProgram = glh.NewProgram(vertShader, fragShaderSmooth)
 	loopDurUniform = shaderProgram.GetUniformLocation("loopDuration")
 	timeUniform = shaderProgram.GetUniformLocation("time")
 
