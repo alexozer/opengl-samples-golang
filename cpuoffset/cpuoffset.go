@@ -35,7 +35,7 @@ func Run() {
 		panic(err)
 	}
 	window.SetKeyCallback(onKey)
-	window.SetFramebufferSizeCallback(reshape)
+	window.SetSizeCallback(reshape)
 
 	window.MakeContextCurrent()
 	glfw.SwapInterval(1)
@@ -88,7 +88,6 @@ func updateVertexBuffer(buf gl.Buffer, verts []float32) {
 	const size = 0.5
 	angle := math.Mod(glfw.GetTime(), speed) / speed * 2.0 * math.Pi
 	xOffset, yOffset := size*float32(math.Cos(angle)), size*float32(math.Sin(angle))
-
 
 	// Intentionally modify the color values as well, because it looks awesome.
 

@@ -43,5 +43,5 @@ var (
 			gl_FragColor = theColor;
 		}
 		`,
-	}	
+	}
 )

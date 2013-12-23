@@ -48,8 +48,8 @@ func Run() {
 
 	// Set the window height uniform initially and for the future
 	shaderProgram.Use()
-	window.SetFramebufferSizeCallback(reshape)
-	window.GetFramebufferSize()
+	window.SetSizeCallback(reshape)
+	window.GetSize()
 
 	for !window.ShouldClose() {
 		display()

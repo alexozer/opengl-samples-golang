@@ -35,7 +35,7 @@ func Run() {
 		panic(err)
 	}
 	window.SetKeyCallback(onKey)
-	window.SetFramebufferSizeCallback(reshape)
+	window.SetSizeCallback(reshape)
 
 	window.MakeContextCurrent()
 	glfw.SwapInterval(1)

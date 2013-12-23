@@ -34,7 +34,7 @@ func Run() {
 		panic(err)
 	}
 	window.SetKeyCallback(onKey)
-	window.SetFramebufferSizeCallback(reshape)
+	window.SetSizeCallback(reshape)
 
 	window.MakeContextCurrent()
 	glfw.SwapInterval(1)
@@ -68,8 +68,8 @@ var vertices = []float32{
 }
 
 var (
-	posBuffer       gl.Buffer
-	shaderProgram   gl.Program
+	posBuffer      gl.Buffer
+	shaderProgram  gl.Program
 	loopDurUniform gl.UniformLocation
 	timeUniform    gl.UniformLocation
 )

@@ -1,8 +1,8 @@
 package fragposition
 
 import (
-	"github.com/go-gl/glh"
 	"github.com/go-gl/gl"
+	"github.com/go-gl/glh"
 )
 
 var (
@@ -36,4 +36,3 @@ var (
 		`,
 	}
 )
-
