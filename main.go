@@ -1,19 +1,19 @@
 package main
 
 import (
-	"github.com/alexozer/opengl-samples-golang/fragposition"
-	//"github.com/alexozer/opengl-samples-golang/vertexcolors"
-	//"github.com/alexozer/opengl-samples-golang/cpuoffset"
-	//"github.com/alexozer/opengl-samples-golang/vertoffset"
-	//"github.com/alexozer/opengl-samples-golang/vertcalcoffset"
-	//"github.com/alexozer/opengl-samples-golang/fragchangecolor"
+	"github.com/alexozer/opengl-samples-golang/cpuOffset"
+	"github.com/alexozer/opengl-samples-golang/fragChangeColor"
+	"github.com/alexozer/opengl-samples-golang/fragPosition"
+	"github.com/alexozer/opengl-samples-golang/vertCalcOffset"
+	"github.com/alexozer/opengl-samples-golang/vertOffset"
+	"github.com/alexozer/opengl-samples-golang/vertexColors"
 )
 
 func main() {
-	fragposition.Run()
-	//vertexcolors.Run()
-	//cpuoffset.Run()
-	//vertoffset.Run()
-	//vertcalcoffset.Run()
-	//fragchangecolor.Run()
+	fragPosition.Run()
+	vertexColors.Run()
+	cpuOffset.Run()
+	vertOffset.Run()
+	vertCalcOffset.Run()
+	fragChangeColor.Run()
 }

@@ -1,4 +1,4 @@
-package fragposition
+package fragPosition
 
 import (
 	"github.com/go-gl/gl"

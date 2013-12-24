@@ -1,4 +1,4 @@
-package vertcalcoffset
+package vertCalcOffset
 
 import (
 	"fmt"

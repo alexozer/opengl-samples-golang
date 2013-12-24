@@ -1,4 +1,4 @@
-package fragposition
+package fragPosition
 
 import (
 	"fmt"

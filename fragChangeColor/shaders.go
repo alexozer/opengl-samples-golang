@@ -1,4 +1,4 @@
-package fragchangecolor
+package fragChangeColor
 
 import (
 	"github.com/go-gl/gl"

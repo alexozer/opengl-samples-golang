@@ -1,4 +1,4 @@
-package vertexcolors
+package vertexColors
 
 import (
 	"fmt"

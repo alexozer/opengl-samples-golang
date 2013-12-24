@@ -1,4 +1,4 @@
-package vertoffset
+package vertOffset
 
 import (
 	"github.com/go-gl/gl"

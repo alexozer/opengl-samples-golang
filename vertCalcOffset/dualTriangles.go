@@ -1,4 +1,4 @@
-package vertcalcoffset
+package vertCalcOffset
 
 import (
 	"github.com/go-gl/gl"

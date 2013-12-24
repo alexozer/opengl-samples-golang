@@ -1,4 +1,4 @@
-package cpuoffset
+package vertexColors
 
 import (
 	"github.com/go-gl/gl"
