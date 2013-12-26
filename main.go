@@ -8,7 +8,8 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/tut03/vertCalcOffset"
 	//"github.com/alexozer/opengl-samples-golang/tut03/vertOffset"
 	//"github.com/alexozer/opengl-samples-golang/tut04/orthoCube"
-	"github.com/alexozer/opengl-samples-golang/tut04/shaderPerspective"
+	//"github.com/alexozer/opengl-samples-golang/tut04/shaderPerspective"
+	"github.com/alexozer/opengl-samples-golang/tut04/matrixPerspective"
 )
 
 func main() {
@@ -19,5 +20,6 @@ func main() {
 	//vertCalcOffset.Run()
 	//fragChangeColor.Run()
 	//orthoCube.Run()
-	shaderPerspective.Run()
+	//shaderPerspective.Run()
+	matrixPerspective.Run()
 }
