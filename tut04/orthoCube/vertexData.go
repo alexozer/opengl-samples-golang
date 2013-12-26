@@ -1,6 +1,6 @@
 package orthoCube
 
-var VertexData = []float32{
+var vertexData = []float32{
 	0.25, 0.25, 0.75, 1,
 	0.25, -0.25, 0.75, 1,
 	-0.25, 0.25, 0.75, 1,

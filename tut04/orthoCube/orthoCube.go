@@ -45,7 +45,7 @@ func Run() {
 	gl.CullFace(gl.BACK)
 	gl.FrontFace(gl.CW)
 
-	posBuffer = genVertexBuffer(VertexData)
+	posBuffer = genVertexBuffer(vertexData)
 	shaderProgram = glh.NewProgram(vertShader, fragShader)
 	offsetLocation = shaderProgram.GetUniformLocation("offset")
 
@@ -93,9 +93,9 @@ func display() {
 	defer positionAttrib.DisableArray()
 
 	colorAttrib := gl.AttribLocation(shaderProgram.GetAttribLocation("color"))
-	colorAttrib.AttribPointer(4, gl.FLOAT, false, 0, uintptr((len(VertexData)*float32_size)/2))
+	colorAttrib.AttribPointer(4, gl.FLOAT, false, 0, uintptr((len(vertexData)*float32_size)/2))
 	colorAttrib.EnableArray()
 	defer colorAttrib.DisableArray()
 
-	gl.DrawArrays(gl.TRIANGLES, 0, len(VertexData)/2/float32_size)
+	gl.DrawArrays(gl.TRIANGLES, 0, len(vertexData)/2/float32_size)
 }
