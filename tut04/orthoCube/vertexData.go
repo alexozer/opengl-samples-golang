@@ -1,4 +1,4 @@
-package tut04
+package orthoCube
 
 var VertexData = []float32{
 	0.25, 0.25, 0.75, 1,

@@ -5,8 +5,6 @@ import (
 	"github.com/go-gl/gl"
 	glfw "github.com/go-gl/glfw3"
 	"github.com/go-gl/glh"
-
-	"github.com/alexozer/opengl-samples-golang/tut04"
 )
 
 func onError(err glfw.ErrorCode, desc string) {
@@ -47,7 +45,7 @@ func Run() {
 	gl.CullFace(gl.BACK)
 	gl.FrontFace(gl.CW)
 
-	posBuffer = genVertexBuffer(tut04.VertexData)
+	posBuffer = genVertexBuffer(VertexData)
 	shaderProgram = glh.NewProgram(vertShader, fragShader)
 	offsetLocation = shaderProgram.GetUniformLocation("offset")
 
@@ -95,9 +93,9 @@ func display() {
 	defer positionAttrib.DisableArray()
 
 	colorAttrib := gl.AttribLocation(shaderProgram.GetAttribLocation("color"))
-	colorAttrib.AttribPointer(4, gl.FLOAT, false, 0, uintptr((len(tut04.VertexData)*float32_size)/2))
+	colorAttrib.AttribPointer(4, gl.FLOAT, false, 0, uintptr((len(VertexData)*float32_size)/2))
 	colorAttrib.EnableArray()
 	defer colorAttrib.DisableArray()
 
-	gl.DrawArrays(gl.TRIANGLES, 0, len(tut04.VertexData)/2/float32_size)
+	gl.DrawArrays(gl.TRIANGLES, 0, len(VertexData)/2/float32_size)
 }
