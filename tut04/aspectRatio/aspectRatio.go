@@ -1,4 +1,4 @@
-package matrixPerspective
+package aspectRatio
 
 import (
 	"fmt"
@@ -18,6 +18,13 @@ func onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods 
 }
 
 func reshape(w *glfw.Window, width, height int) {
+	perspectiveMatrix[0] = frustumScale / (float32(width) / float32(height))
+	perspectiveMatrix[5] = frustumScale
+
+	shaderProgram.Use()
+	perspectiveMatrixLoc.UniformMatrix4f(false, &perspectiveMatrix)
+	gl.ProgramUnuse()
+
 	gl.Viewport(0, 0, width, height)
 }
 
@@ -49,15 +56,11 @@ func Run() {
 	shaderProgram = glh.NewProgram(vertShader, fragShader)
 
 	offsetLocation := shaderProgram.GetUniformLocation("offset")
-	zNearLocation := shaderProgram.GetUniformLocation("zNear")
-	zFarLocation := shaderProgram.GetUniformLocation("zFar")
-	frustumScaleLoc := shaderProgram.GetUniformLocation("frustumScale")
+	perspectiveMatrixLoc = shaderProgram.GetUniformLocation("perspectiveMatrix")
 
 	shaderProgram.Use()
 	offsetLocation.Uniform2f(xOffset, yOffset)
-	zNearLocation.Uniform1f(zNear)
-	zFarLocation.Uniform1f(zFar)
-	frustumScaleLoc.Uniform1f(frustumScale)
+	perspectiveMatrixLoc.UniformMatrix4f(false, &perspectiveMatrix)
 	gl.ProgramUnuse()
 
 	for !window.ShouldClose() {
@@ -65,17 +68,25 @@ func Run() {
 		window.SwapBuffers()
 		glfw.PollEvents()
 	}
-
 }
 
 var (
-	posBuffer     gl.Buffer
-	shaderProgram gl.Program
+	posBuffer            gl.Buffer
+	shaderProgram        gl.Program
+	perspectiveMatrixLoc gl.UniformLocation
+
+	perspectiveMatrix = [16]float32{
+		0:  frustumScale,
+		5:  frustumScale,
+		10: (zFar + zNear) / (zNear - zFar),
+		14: (2 * zFar * zNear) / (zNear - zFar),
+		11: -1,
+	}
 )
 
 // All float32's have a size of 4 bytes
 const float32_size = 4
-const xOffset, yOffset float32 = 0.5, 0.5
+const xOffset, yOffset float32 = 1.5, 0.5
 const zNear, zFar float32 = 1, 3
 const frustumScale float32 = 1
 
@@ -94,6 +105,8 @@ func display() {
 	gl.Clear(gl.COLOR_BUFFER_BIT)
 
 	posBuffer.Bind(gl.ARRAY_BUFFER)
+	defer posBuffer.Unbind(gl.ARRAY_BUFFER)
+
 	shaderProgram.Use()
 	defer gl.ProgramUnuse()
 
