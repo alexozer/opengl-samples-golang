@@ -13,7 +13,8 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/tut04/aspectRatio"
 	//"github.com/alexozer/opengl-samples-golang/tut05/overlapNoDepth"
 	//"github.com/alexozer/opengl-samples-golang/tut05/baseVertexOverlap"
-	"github.com/alexozer/opengl-samples-golang/tut05/depthBuffer"
+	//"github.com/alexozer/opengl-samples-golang/tut05/depthBuffer"
+	"github.com/alexozer/opengl-samples-golang/tut05/vertexClipping"
 )
 
 func main() {
@@ -29,5 +30,6 @@ func main() {
 	//aspectRatio.Run()
 	//overlapNoDepth.Run()
 	//baseVertexOverlap.Run()
-	depthBuffer.Run()
+	//depthBuffer.Run()
+	vertexClipping.Run()
 }
