@@ -10,7 +10,8 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/tut04/orthoCube"
 	//"github.com/alexozer/opengl-samples-golang/tut04/shaderPerspective"
 	//"github.com/alexozer/opengl-samples-golang/tut04/matrixPerspective"
-	"github.com/alexozer/opengl-samples-golang/tut04/aspectRatio"
+	//"github.com/alexozer/opengl-samples-golang/tut04/aspectRatio"
+	"github.com/alexozer/opengl-samples-golang/tut05/overlapNoDepth"
 )
 
 func main() {
@@ -23,5 +24,6 @@ func main() {
 	//orthoCube.Run()
 	//shaderPerspective.Run()
 	//matrixPerspective.Run()
-	aspectRatio.Run()
+	//aspectRatio.Run()
+	overlapNoDepth.Run()
 }
