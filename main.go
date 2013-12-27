@@ -11,7 +11,8 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/tut04/shaderPerspective"
 	//"github.com/alexozer/opengl-samples-golang/tut04/matrixPerspective"
 	//"github.com/alexozer/opengl-samples-golang/tut04/aspectRatio"
-	"github.com/alexozer/opengl-samples-golang/tut05/overlapNoDepth"
+	//"github.com/alexozer/opengl-samples-golang/tut05/overlapNoDepth"
+	"github.com/alexozer/opengl-samples-golang/tut05/baseVertexOverlap"
 )
 
 func main() {
@@ -25,5 +26,6 @@ func main() {
 	//shaderPerspective.Run()
 	//matrixPerspective.Run()
 	//aspectRatio.Run()
-	overlapNoDepth.Run()
+	//overlapNoDepth.Run()
+	baseVertexOverlap.Run()
 }
