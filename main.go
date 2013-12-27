@@ -14,7 +14,8 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/tut05/overlapNoDepth"
 	//"github.com/alexozer/opengl-samples-golang/tut05/baseVertexOverlap"
 	//"github.com/alexozer/opengl-samples-golang/tut05/depthBuffer"
-	"github.com/alexozer/opengl-samples-golang/tut05/vertexClipping"
+	//"github.com/alexozer/opengl-samples-golang/tut05/vertexClipping"
+	"github.com/alexozer/opengl-samples-golang/tut05/depthClamping"
 )
 
 func main() {
@@ -31,5 +32,6 @@ func main() {
 	//overlapNoDepth.Run()
 	//baseVertexOverlap.Run()
 	//depthBuffer.Run()
-	vertexClipping.Run()
+	//vertexClipping.Run()
+	depthClamping.Run()
 }
