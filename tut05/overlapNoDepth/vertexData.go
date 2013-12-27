@@ -1,63 +1,63 @@
 package overlapNoDepth
 
 const (
-	RIGHT_EXTENT  = 0.8
-	LEFT_EXTENT   = -RIGHT_EXTENT
-	TOP_EXTENT    = 0.20
-	MIDDLE_EXTENT = 0.0
-	BOTTOM_EXTENT = -TOP_EXTENT
-	FRONT_EXTENT  = -1.25
-	REAR_EXTENT   = -1.75
+	rightExtent  = 0.8
+	leftExtent   = -rightExtent
+	topExtent    = 0.20
+	middleExtent = 0.0
+	bottomExtent = -topExtent
+	frontExtent  = -1.25
+	rearExtent   = -1.75
 )
 
 var vertexData = []float32{
 	// Object 1 positions
-	LEFT_EXTENT, TOP_EXTENT, REAR_EXTENT,
-	LEFT_EXTENT, MIDDLE_EXTENT, FRONT_EXTENT,
-	RIGHT_EXTENT, MIDDLE_EXTENT, FRONT_EXTENT,
-	RIGHT_EXTENT, TOP_EXTENT, REAR_EXTENT,
+	leftExtent, topExtent, rearExtent,
+	leftExtent, middleExtent, frontExtent,
+	rightExtent, middleExtent, frontExtent,
+	rightExtent, topExtent, rearExtent,
 
-	LEFT_EXTENT, BOTTOM_EXTENT, REAR_EXTENT,
-	LEFT_EXTENT, MIDDLE_EXTENT, FRONT_EXTENT,
-	RIGHT_EXTENT, MIDDLE_EXTENT, FRONT_EXTENT,
-	RIGHT_EXTENT, BOTTOM_EXTENT, REAR_EXTENT,
+	leftExtent, bottomExtent, rearExtent,
+	leftExtent, middleExtent, frontExtent,
+	rightExtent, middleExtent, frontExtent,
+	rightExtent, bottomExtent, rearExtent,
 
-	LEFT_EXTENT, TOP_EXTENT, REAR_EXTENT,
-	LEFT_EXTENT, MIDDLE_EXTENT, FRONT_EXTENT,
-	LEFT_EXTENT, BOTTOM_EXTENT, REAR_EXTENT,
+	leftExtent, topExtent, rearExtent,
+	leftExtent, middleExtent, frontExtent,
+	leftExtent, bottomExtent, rearExtent,
 
-	RIGHT_EXTENT, TOP_EXTENT, REAR_EXTENT,
-	RIGHT_EXTENT, MIDDLE_EXTENT, FRONT_EXTENT,
-	RIGHT_EXTENT, BOTTOM_EXTENT, REAR_EXTENT,
+	rightExtent, topExtent, rearExtent,
+	rightExtent, middleExtent, frontExtent,
+	rightExtent, bottomExtent, rearExtent,
 
-	LEFT_EXTENT, BOTTOM_EXTENT, REAR_EXTENT,
-	LEFT_EXTENT, TOP_EXTENT, REAR_EXTENT,
-	RIGHT_EXTENT, TOP_EXTENT, REAR_EXTENT,
-	RIGHT_EXTENT, BOTTOM_EXTENT, REAR_EXTENT,
+	leftExtent, bottomExtent, rearExtent,
+	leftExtent, topExtent, rearExtent,
+	rightExtent, topExtent, rearExtent,
+	rightExtent, bottomExtent, rearExtent,
 
 	// Object 2 positions
-	TOP_EXTENT, RIGHT_EXTENT, REAR_EXTENT,
-	MIDDLE_EXTENT, RIGHT_EXTENT, FRONT_EXTENT,
-	MIDDLE_EXTENT, LEFT_EXTENT, FRONT_EXTENT,
-	TOP_EXTENT, LEFT_EXTENT, REAR_EXTENT,
+	topExtent, rightExtent, rearExtent,
+	middleExtent, rightExtent, frontExtent,
+	middleExtent, leftExtent, frontExtent,
+	topExtent, leftExtent, rearExtent,
 
-	BOTTOM_EXTENT, RIGHT_EXTENT, REAR_EXTENT,
-	MIDDLE_EXTENT, RIGHT_EXTENT, FRONT_EXTENT,
-	MIDDLE_EXTENT, LEFT_EXTENT, FRONT_EXTENT,
-	BOTTOM_EXTENT, LEFT_EXTENT, REAR_EXTENT,
+	bottomExtent, rightExtent, rearExtent,
+	middleExtent, rightExtent, frontExtent,
+	middleExtent, leftExtent, frontExtent,
+	bottomExtent, leftExtent, rearExtent,
 
-	TOP_EXTENT, RIGHT_EXTENT, REAR_EXTENT,
-	MIDDLE_EXTENT, RIGHT_EXTENT, FRONT_EXTENT,
-	BOTTOM_EXTENT, RIGHT_EXTENT, REAR_EXTENT,
+	topExtent, rightExtent, rearExtent,
+	middleExtent, rightExtent, frontExtent,
+	bottomExtent, rightExtent, rearExtent,
 
-	TOP_EXTENT, LEFT_EXTENT, REAR_EXTENT,
-	MIDDLE_EXTENT, LEFT_EXTENT, FRONT_EXTENT,
-	BOTTOM_EXTENT, LEFT_EXTENT, REAR_EXTENT,
+	topExtent, leftExtent, rearExtent,
+	middleExtent, leftExtent, frontExtent,
+	bottomExtent, leftExtent, rearExtent,
 
-	BOTTOM_EXTENT, RIGHT_EXTENT, REAR_EXTENT,
-	TOP_EXTENT, RIGHT_EXTENT, REAR_EXTENT,
-	TOP_EXTENT, LEFT_EXTENT, REAR_EXTENT,
-	BOTTOM_EXTENT, LEFT_EXTENT, REAR_EXTENT,
+	bottomExtent, rightExtent, rearExtent,
+	topExtent, rightExtent, rearExtent,
+	topExtent, leftExtent, rearExtent,
+	bottomExtent, leftExtent, rearExtent,
 
 	// Object 1 colors
 	0.75, 0.75, 1, 1,
