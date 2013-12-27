@@ -54,7 +54,7 @@ func Run() {
 
 	gl.Enable(gl.DEPTH_TEST)
 	gl.DepthMask(true)
-	gl.DepthFunc(gl.LEQUAL)
+	gl.DepthFunc(gl.LESS)
 	gl.DepthRange(0, 1)
 
 	posBuffer = genVertexBuffer(vertexData)
