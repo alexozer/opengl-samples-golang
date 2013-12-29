@@ -17,7 +17,8 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/tut05/vertexClipping"
 	//"github.com/alexozer/opengl-samples-golang/tut05/depthClamping"
 	//"github.com/alexozer/opengl-samples-golang/tut06/translation"
-	"github.com/alexozer/opengl-samples-golang/tut06/scale"
+	//"github.com/alexozer/opengl-samples-golang/tut06/scale"
+	"github.com/alexozer/opengl-samples-golang/tut06/rotations"
 )
 
 func main() {
@@ -37,5 +38,6 @@ func main() {
 	//vertexClipping.Run()
 	//depthClamping.Run()
 	//translation.Run()
-	scale.Run()
+	//scale.Run()
+	rotations.Run()
 }
