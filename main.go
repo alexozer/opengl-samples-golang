@@ -18,7 +18,8 @@ import (
 	//"github.com/alexozer/opengl-samples-golang/tut05/depthClamping"
 	//"github.com/alexozer/opengl-samples-golang/tut06/translation"
 	//"github.com/alexozer/opengl-samples-golang/tut06/scale"
-	"github.com/alexozer/opengl-samples-golang/tut06/rotations"
+	//"github.com/alexozer/opengl-samples-golang/tut06/rotations"
+	"github.com/alexozer/opengl-samples-golang/tut06/hierarchy"
 )
 
 func main() {
@@ -39,5 +40,6 @@ func main() {
 	//depthClamping.Run()
 	//translation.Run()
 	//scale.Run()
-	rotations.Run()
+	//rotations.Run()
+	hierarchy.Run()
 }
