@@ -2,6 +2,7 @@ package vertCalcOffset
 
 import (
 	"fmt"
+
 	"github.com/go-gl/gl"
 	glfw "github.com/go-gl/glfw3"
 	"github.com/go-gl/glh"
@@ -21,7 +22,7 @@ func reshape(w *glfw.Window, width, height int) {
 	gl.Viewport(0, 0, width, height)
 }
 
-func Run() {
+func Run(displayFunc func()) {
 	glfw.SetErrorCallback(onError)
 
 	if !glfw.Init() {
@@ -51,8 +52,7 @@ func Run() {
 	gl.ProgramUnuse()
 
 	for !window.ShouldClose() {
-		display()
-		//displayDual()
+		displayFunc()
 		window.SwapBuffers()
 		glfw.PollEvents()
 	}
@@ -88,7 +88,7 @@ func genVertexBuffer(verts []float32) gl.Buffer {
 	return buffer
 }
 
-func display() {
+func Display() {
 	gl.ClearColor(0, 0, 0, 0)
 	gl.Clear(gl.COLOR_BUFFER_BIT)
 

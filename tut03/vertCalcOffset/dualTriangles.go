@@ -5,7 +5,7 @@ import (
 	glfw "github.com/go-gl/glfw3"
 )
 
-func displayDual() {
+func DisplayDual() {
 	gl.ClearColor(0, 0, 0, 0)
 	gl.Clear(gl.COLOR_BUFFER_BIT)
 
