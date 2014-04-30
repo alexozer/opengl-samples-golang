@@ -8,8 +8,8 @@ import (
 	glfw "github.com/go-gl/glfw3"
 	"github.com/go-gl/glh"
 
-	"github.com/ungerik/go3d/vec3"
 	"github.com/ungerik/go3d/mat4"
+	"github.com/ungerik/go3d/vec3"
 )
 
 func onError(err glfw.ErrorCode, desc string) {
@@ -109,11 +109,12 @@ const zNear, zFar = 1.0, 61.0
 var frustumScale float32 = calcFrustumScale(45)
 
 var spikeys = []instance{
-	{nullRotation,		vec3.T{0.0, 0.0, -25.0}},
-	{rotateX,			vec3.T{-5.0, -5.0, -25.0}},
-	{rotateY,			vec3.T{-5.0, 5.0, -25.0}},
-	{rotateZ,			vec3.T{5.0, 5.0, -25.0}},
+	{nullRotation, vec3.T{0.0, 0.0, -25.0}},
+	{rotateX, vec3.T{-5.0, -5.0, -25.0}},
+	{rotateY, vec3.T{-5.0, 5.0, -25.0}},
+	{rotateZ, vec3.T{5.0, 5.0, -25.0}},
 }
+
 /*
  * The greater the angle, the greater the field of view captured,
  * which makes the objects seem smaller. Therefore, the larger the
@@ -173,7 +174,7 @@ func initVAO() (vao gl.VertexArray) {
 // angle based on the current time
 type instance struct {
 	rotationFunc func(elapsedTime float64) (rotMatrix *mat4.T)
-	position  vec3.T
+	position     vec3.T
 }
 
 func (obj instance) constructMatrix(elapsedTime float64) *mat4.T {

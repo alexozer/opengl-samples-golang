@@ -234,6 +234,6 @@ func display() {
 		transformMatrix := spikey.constructMatrix(currTime)
 		modelToCameraMatrixUnif.UniformMatrix4f(false, flattenMatrix(transformMatrix))
 
-		gl.DrawElements(gl.TRIANGLES, len(indexData), gl.UNSIGNED_SHORT, uintptr(0)) 
+		gl.DrawElements(gl.TRIANGLES, len(indexData), gl.UNSIGNED_SHORT, uintptr(0))
 	}
 }

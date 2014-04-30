@@ -52,8 +52,8 @@ func Run() {
 	perspectiveMatrixLoc := shaderProgram.GetUniformLocation("perspectiveMatrix")
 
 	perspectiveMatrix := [16]float32{
-		0: frustumScale,
-		5: frustumScale,
+		0:  frustumScale,
+		5:  frustumScale,
 		10: (zFar + zNear) / (zNear - zFar),
 		14: (2 * zFar * zNear) / (zNear - zFar),
 		11: -1,

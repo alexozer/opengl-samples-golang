@@ -79,8 +79,8 @@ var (
 
 	shaderProgram               gl.Program
 	positionAttrib, colorAttrib gl.AttribLocation
-	perspectiveMatrixUnif        gl.UniformLocation
-	offsetUnif gl.UniformLocation
+	perspectiveMatrixUnif       gl.UniformLocation
+	offsetUnif                  gl.UniformLocation
 )
 
 var perspectiveMatrix = [16]float32{
@@ -99,8 +99,8 @@ const uint16_size = 2
 const numVertices = 36
 
 const (
-	zNear, zFar      float32 = 1, 3
-	frustumScale     float32 = 1
+	zNear, zFar  float32 = 1, 3
+	frustumScale float32 = 1
 )
 
 func genVertexBuffer(verts []float32) gl.Buffer {

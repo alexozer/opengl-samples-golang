@@ -2,33 +2,34 @@ package hierarchy
 
 import (
 	"fmt"
+
+	math "github.com/barnex/fmath"
 	"github.com/go-gl/gl"
 	"github.com/ungerik/go3d/vec3"
-	math "github.com/barnex/fmath"
 )
 
 var (
-	posBase = vec3.T{3.0, -5.0, -40.0}
-	angBase float32 = -45.0
-	posBaseLeft = vec3.T{2.0, 0.0, 0.0}
-	posBaseRight = vec3.T{-2.0, 0.0, 0.0}
-	scaleBaseZ float32 = 3.0
-	angUpperArm float32 = -33.75
-	sizeUpperArm float32 = 9.0
-	posLowerArm = vec3.T{0.0, 0.0, 8.0}
-	angLowerArm float32 = 146.25
-	lenLowerArm float32 = 5.0
-	widthLowerArm float32 = 1.5
-	posWrist = vec3.T{0.0, 0.0, 5.0}
-	angWristRoll float32 = 0.0
-	angWristPitch float32 = 67.5
-	lenWrist float32 = 2.0
-	widthWrist float32 = 2.0
-	posLeftFinger = vec3.T{1.0, 0.0, 1.0}
-	posRightFinger = vec3.T{-1.0, 0.0, 1.0}
-	angFingerOpen float32 = 180.0
-	lenFinger float32 = 2.0
-	widthFinger float32 = 0.5
+	posBase                = vec3.T{3.0, -5.0, -40.0}
+	angBase        float32 = -45.0
+	posBaseLeft            = vec3.T{2.0, 0.0, 0.0}
+	posBaseRight           = vec3.T{-2.0, 0.0, 0.0}
+	scaleBaseZ     float32 = 3.0
+	angUpperArm    float32 = -33.75
+	sizeUpperArm   float32 = 9.0
+	posLowerArm            = vec3.T{0.0, 0.0, 8.0}
+	angLowerArm    float32 = 146.25
+	lenLowerArm    float32 = 5.0
+	widthLowerArm  float32 = 1.5
+	posWrist               = vec3.T{0.0, 0.0, 5.0}
+	angWristRoll   float32 = 0.0
+	angWristPitch  float32 = 67.5
+	lenWrist       float32 = 2.0
+	widthWrist     float32 = 2.0
+	posLeftFinger          = vec3.T{1.0, 0.0, 1.0}
+	posRightFinger         = vec3.T{-1.0, 0.0, 1.0}
+	angFingerOpen  float32 = 180.0
+	lenFinger      float32 = 2.0
+	widthFinger    float32 = 0.5
 	angLowerFinger float32 = 45.0
 )
 
@@ -119,61 +120,61 @@ func drawWrist(matStack *matrixStack) {
 }
 
 func drawFingers(matStack *matrixStack) {
-		//Draw left finger
+	//Draw left finger
+	matStack.push()
+	matStack.Translate(&posLeftFinger)
+	matStack.RotateY(degToRad(angFingerOpen))
+
+	matStack.push()
+	matStack.Translate(&vec3.T{0, 0, lenFinger / 2.0})
+	matStack.ScaleVec3(&vec3.T{widthFinger / 2.0, widthFinger / 2.0, lenFinger / 2.0})
+	drawNode(matStack)
+	matStack.pop()
+
+	{
+		//Draw left lower finger
 		matStack.push()
-		matStack.Translate(&posLeftFinger)
-		matStack.RotateY(degToRad(angFingerOpen))
-
-		matStack.push()
-		matStack.Translate(&vec3.T{0, 0, lenFinger / 2.0})
-		matStack.ScaleVec3(&vec3.T{widthFinger / 2.0, widthFinger/ 2.0, lenFinger / 2.0})
-		drawNode(matStack)
-		matStack.pop()
-
-		{
-			//Draw left lower finger
-			matStack.push()
-			matStack.Translate(&vec3.T{0, 0, lenFinger})
-			matStack.RotateY(degToRad(-angLowerFinger))
-
-			matStack.push()
-			matStack.Translate(&vec3.T{0, 0, lenFinger / 2.0})
-			matStack.ScaleVec3(&vec3.T{widthFinger / 2.0, widthFinger/ 2.0, lenFinger / 2.0})
-			drawNode(matStack)
-			matStack.pop()
-
-			matStack.pop()
-		}
-
-		matStack.pop()
-
-		//Draw right finger
-		matStack.push()
-		matStack.Translate(&posRightFinger)
-		matStack.RotateY(degToRad(-angFingerOpen))
+		matStack.Translate(&vec3.T{0, 0, lenFinger})
+		matStack.RotateY(degToRad(-angLowerFinger))
 
 		matStack.push()
 		matStack.Translate(&vec3.T{0, 0, lenFinger / 2.0})
-		matStack.ScaleVec3(&vec3.T{widthFinger / 2.0, widthFinger/ 2.0, lenFinger / 2.0})
+		matStack.ScaleVec3(&vec3.T{widthFinger / 2.0, widthFinger / 2.0, lenFinger / 2.0})
 		drawNode(matStack)
 		matStack.pop()
 
-		{
-			//Draw right lower finger
-			matStack.push()
-			matStack.Translate(&vec3.T{0, 0, lenFinger})
-			matStack.RotateY(degToRad(angLowerFinger))
+		matStack.pop()
+	}
 
-			matStack.push()
-			matStack.Translate(&vec3.T{0, 0, lenFinger / 2.0})
-			matStack.ScaleVec3(&vec3.T{widthFinger / 2.0, widthFinger/ 2.0, lenFinger / 2.0})
-			drawNode(matStack)
-			matStack.pop()
+	matStack.pop()
 
-			matStack.pop()
-		}
+	//Draw right finger
+	matStack.push()
+	matStack.Translate(&posRightFinger)
+	matStack.RotateY(degToRad(-angFingerOpen))
+
+	matStack.push()
+	matStack.Translate(&vec3.T{0, 0, lenFinger / 2.0})
+	matStack.ScaleVec3(&vec3.T{widthFinger / 2.0, widthFinger / 2.0, lenFinger / 2.0})
+	drawNode(matStack)
+	matStack.pop()
+
+	{
+		//Draw right lower finger
+		matStack.push()
+		matStack.Translate(&vec3.T{0, 0, lenFinger})
+		matStack.RotateY(degToRad(angLowerFinger))
+
+		matStack.push()
+		matStack.Translate(&vec3.T{0, 0, lenFinger / 2.0})
+		matStack.ScaleVec3(&vec3.T{widthFinger / 2.0, widthFinger / 2.0, lenFinger / 2.0})
+		drawNode(matStack)
+		matStack.pop()
 
 		matStack.pop()
+	}
+
+	matStack.pop()
 }
 
 func adjBase(increment bool) {
@@ -237,7 +238,7 @@ func adjFingerOpen(increment bool) {
 }
 
 const (
-	stdAngleInc = 11.25
+	stdAngleInc   = 11.25
 	smallAngleInc = 9.0
 )
 
