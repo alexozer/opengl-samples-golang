@@ -19,7 +19,7 @@ func onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods 
 	}
 }
 
-func reshape(w *glfw.Window, width, height int) {
+func onResize(w *glfw.Window, width, height int) {
 	gl.Viewport(0, 0, width, height)
 }
 
@@ -36,7 +36,7 @@ func Run() {
 		panic(err)
 	}
 	window.SetKeyCallback(onKey)
-	window.SetSizeCallback(reshape)
+	window.SetSizeCallback(onResize)
 
 	window.MakeContextCurrent()
 	glfw.SwapInterval(1)

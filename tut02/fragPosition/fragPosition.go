@@ -19,7 +19,7 @@ func onKey(w *glfw.Window, key glfw.Key, scancode int,
 	}
 }
 
-func reshape(w *glfw.Window, width, height int) {
+func onResize(w *glfw.Window, width, height int) {
 	gl.Viewport(0, 0, width, height)
 
 	heightUnif.Uniform1i(height)
@@ -50,7 +50,7 @@ func Run() {
 
 	// Set the window height uniform initially and for the future
 	shaderProgram.Use()
-	window.SetSizeCallback(reshape)
+	window.SetSizeCallback(onResize)
 	window.GetSize()
 
 	for !window.ShouldClose() {
