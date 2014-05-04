@@ -2,6 +2,7 @@ package fragPosition
 
 import (
 	"fmt"
+
 	"github.com/go-gl/gl"
 	glfw "github.com/go-gl/glfw3"
 	"github.com/go-gl/glh"

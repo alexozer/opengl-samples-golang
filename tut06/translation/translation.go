@@ -2,12 +2,13 @@ package translation
 
 import (
 	"fmt"
+	"math"
+
 	"github.com/go-gl/gl"
 	glfw "github.com/go-gl/glfw3"
 	"github.com/go-gl/glh"
 	"github.com/ungerik/go3d/mat4"
 	"github.com/ungerik/go3d/vec3"
-	"math"
 )
 
 func onError(err glfw.ErrorCode, desc string) {

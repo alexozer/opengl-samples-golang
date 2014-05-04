@@ -2,10 +2,11 @@ package cpuOffset
 
 import (
 	"fmt"
+	"math"
+
 	"github.com/go-gl/gl"
 	glfw "github.com/go-gl/glfw3"
 	"github.com/go-gl/glh"
-	"math"
 )
 
 func onError(err glfw.ErrorCode, desc string) {
